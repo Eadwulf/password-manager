@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stored Passwords</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+    Stored Passwords
+{% endblock %}
+
+{% block title %}
+    <h1>Stored Passwords</h1>
+{% endblock %}
+
+{% block content %}
     {% for password in passwords %}
         <ul>
             <li>{{ password.username }}</li>
@@ -15,7 +17,7 @@
             {% elif password.website.url %}
                 <li>{{ password.website.url }}</li>
             {% endif %}
+            <p><a href="{{ password.get_absolute_url }}">View</a></p>
         </ul>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
