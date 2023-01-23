@@ -16,7 +16,7 @@ class Password(models.Model):
     account = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='associated_passwords')
     username = models.CharField(max_length=SMALL_TEXT)
     password_hash = models.CharField(max_length=MEDIUM_TEXT)
-    website = models.ForeignKey('passwords.Website', on_delete=models.CASCADE, related_name='associated_passwords')
+    website = models.ForeignKey('websites.Website', on_delete=models.CASCADE, related_name='associated_passwords')
     added_on = models.DateTimeField(auto_now=True, blank=True, null=True)
     modified_on = models.DateTimeField(blank=True, null=True)
 
@@ -29,9 +29,3 @@ class Password(models.Model):
     def __str__(self):
             output = self.website.name
             return output
-
-
-class Website(models.Model):
-    url = models.URLField(max_length=MEDIUM_TEXT, primary_key=True)
-    name = models.CharField(max_length=MEDIUM_TEXT, blank=True, null=True)
-    description = models.CharField(max_length=EXTRA_LARGE_TEXT, blank=True, null=True)

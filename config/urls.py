@@ -12,4 +12,7 @@ urlpatterns = [
 
     # urls for passwords app
     path('passwords/', include('passwords.urls')),
+
+    # urls for websites app
+    path('websites/', include('websites.urls')),
 ]

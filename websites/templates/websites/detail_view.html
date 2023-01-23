@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+    website Detail
+{% endblock %}
+
+{% block title %}
+    <h1>website Detail</h1>
+{% endblock %}
+
+{% block content %}
+   <h3>{{ website.name}} </h3> 
+   <ul>
+        <li>URL: {{ website.url }}</li>
+        <li>Description: {{ website.description }}</li>
+   </ul>
+{% endblock %}

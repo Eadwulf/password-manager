@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+    Stored websites
+{% endblock %}
+
+{% block title %}
+    <h1>Stored websites</h1>
+{% endblock %}
+
+{% block content %}
+    {% for website in websites %}
+        <h3>{{ website.name }}</h3>
+        <ul>
+            <li>{{ website.url }}</li>
+            {% if website.description %}
+                <li>{{ website.description }}</li>
+            {% endif %}
+            <p><a href="{{ website.get_absolute_url }}">View</a></p>
+        </ul>
+    {% endfor %}
+{% endblock %}

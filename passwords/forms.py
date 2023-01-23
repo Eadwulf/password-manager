@@ -9,5 +9,3 @@ class CreatePasswordForm(forms.ModelForm):
         model = Password
         fields = '__all__'
     
-    def clean_url(self):
-        return self.cleaned_data['url'].lower()

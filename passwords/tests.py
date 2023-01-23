@@ -1,8 +1,9 @@
 from django.test import TestCase
 from django.utils import timezone
 
-from passwords.models import Password, Website
 from accounts.models import CustomUser as User
+from passwords.models import Password
+from websites.models import Website
 
 from hashlib import sha256
 
@@ -28,14 +29,9 @@ class PasswordTests(TestCase):
             website = website,
         )
 
-    def test_website_model(self):
-        website = Website.objects.get(url='https://www.websitefortesting.com/')
-        self.assertEqual(website.name, 'A Test Website')
-        self.assertEqual(website.description, 'A sample website for testing purposes')
-
     def test_password_model(self):
         password = Password.objects.get(account=User.objects.get(username='testusername'))
         self.assertEqual(password.username, 'testusername')
         self.assertEqual(password.password_hash, sha256('test-password'.encode('utf-8')).hexdigest())
         self.assertEqual(password.website, Website.objects.get(url='https://www.websitefortesting.com/'))
-        self.assertEqual(password.add_on.timetuple()[:3], timezone.now().timetuple()[:3])
+        self.assertEqual(password.added_on.timetuple()[:3], timezone.now().timetuple()[:3])

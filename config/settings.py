@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'accounts.apps.AccountsConfig',
+    'websites.apps.WebsitesConfig',
     'passwords.apps.PasswordsConfig',
 ]
 
