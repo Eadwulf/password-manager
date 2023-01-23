@@ -1,22 +1,23 @@
-from django.views.generic import ListView, DetailView
-
 from passwords.models import Password
 from passwords.forms import PasswordCreateForm
-from passwords.views_mixins import CreateViewMixin
+from utils.views import CreateViewMixin, DetailViewMixin, ListViewMixin
 
 
 class PasswordCreateView(CreateViewMixin):
     form_class = PasswordCreateForm
     template_name = 'passwords/create_view.html'
+    unauthorized_access_template = 'authentication/unauthorized_access.html'
 
 
-class PasswordListView(ListView):
+class PasswordListView(ListViewMixin):
     model = Password
     context_object_name = 'passwords'
     template_name = 'passwords/list_view.html'
+    unauthorized_access_template = 'authentication/unauthorized_access.html'
 
 
-class PasswordDetailView(DetailView):
+class PasswordDetailView(DetailViewMixin):
     model = Password
     context_object_name = 'password'
     template_name = 'passwords/detail_view.html'
+    unauthorized_access_template = 'authentication/unauthorized_access.html'
