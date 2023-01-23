@@ -3,7 +3,7 @@ from django import forms
 from passwords.models import Password
 
 
-class CreatePasswordForm(forms.ModelForm):
+class PasswordCreateForm(forms.ModelForm):
 
     class Meta:
         model = Password

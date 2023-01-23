@@ -4,7 +4,7 @@ from django import forms
 from websites.models import Website
 
 
-class CreateWebsiteForm(forms.ModelForm):
+class WebsiteCreateForm(forms.ModelForm):
 
     class Meta:
         model = Website
