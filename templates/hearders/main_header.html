@@ -32,7 +32,7 @@
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="{% url 'password_list' %}" class="nav-link px-2 link-dark">Passwords</a></li>
-                    <li><a href="#" class="nav-link px-2 link-dark">Projects</a></li>
+                    <li><a href="{% url 'website_list' %}" class="nav-link px-2 link-dark">Websites</a></li>
                     <li><a href="#" class="nav-link px-2 link-dark">Contact</a></li>
                     <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
                 </ul>
@@ -47,6 +47,7 @@
                     </a>
                     <ul class="dropdown-menu text-small">
                         <li><a href="{% url 'password_create' %}" class="dropdown-item" href="#">Add Password</a></li>
+                        <li><a href="{% url 'website_create' %}" class="dropdown-item" href="#">Add Website</a></li>
                         {% if user.is_authenticated %}
                             <li><a href="{% url 'logout' %}" class="dropdown-item">Log Out</a></li>
                         {% else %}
@@ -54,7 +55,7 @@
                             <li><a href="{% url 'signup' %}" class="dropdown-item">Sign Up</a></li>
                         {% endif %}
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a href="/admin/" class="dropdown-item">Admin</a></li>
                     </ul>
                 </div>
             </div>
