@@ -10,13 +10,13 @@
 
 {% block content %}
     {% for website in websites %}
-        <h3>{{ website.name }}</h3>
+        <a href="{{ website.get_absolute_url }}"><h3>{{ website.name }}</h3></a>
         <ul>
             <li>{{ website.url }}</li>
             {% if website.description %}
                 <li>{{ website.description }}</li>
             {% endif %}
-            <p><a href="{{ website.get_absolute_url }}">View</a></p>
         </ul>
+        <br>
     {% endfor %}
 {% endblock %}

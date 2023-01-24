@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
     'accounts.apps.AccountsConfig',
     'websites.apps.WebsitesConfig',
-    'passwords.apps.PasswordsConfig',
+    'credentials.apps.CredentialsConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +129,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

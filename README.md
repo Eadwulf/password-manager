@@ -22,8 +22,8 @@
     python manage.py migrate
 <br>
 
-### Run the tests for "passwords" app
-    python manage.py test password 
+### Run the tests for "credentials" app
+    python manage.py test credentials 
 <br>
 
 ### Run the tests for "websites" app

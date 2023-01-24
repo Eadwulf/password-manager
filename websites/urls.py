@@ -5,7 +5,7 @@ from websites.views import (
 )
 
 
-appname = 'websites'
+# app_name = 'websites'
 urlpatterns = [
     path('', WebsiteListView.as_view(), name='website_list'),
     path('create/', WebsiteCreateView.as_view(), name='website_create'),

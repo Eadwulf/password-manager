@@ -1,17 +1,14 @@
 from django.db import models
 from django.urls import reverse
 
-
-SMALL_TEXT       =  32
-MEDIUM_TEXT      =  64
-LARGE_TEXT       = 128
-EXTRA_LARGE_TEXT = 256
+from accounts.models import User
 
 
 class Website(models.Model):
-    url = models.URLField(max_length=MEDIUM_TEXT)
-    name = models.CharField(max_length=MEDIUM_TEXT, blank=True, null=True)
-    description = models.CharField(max_length=EXTRA_LARGE_TEXT, blank=True, null=True)
+    url = models.URLField(max_length=64)
+    name = models.CharField(max_length=64, blank=True, null=True)
+    description = models.CharField(max_length=256, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='website')
 
     def get_absolute_url(self):
         return reverse('website_detail', kwargs={'pk': self.pk})

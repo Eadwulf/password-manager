@@ -24,7 +24,7 @@ class CreateViewMixin(IsAuthorizedMixin, CreateView):
 
 
 class DetailViewMixin(IsAuthorizedMixin, DetailView):
-
+    
     def get(self, request, *args, **kwargs):
         if self.user_is_authorized(request):
             return super().get(request, *args, **kwargs)

@@ -10,8 +10,8 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 
-    # urls for passwords app
-    path('passwords/', include('passwords.urls')),
+    # urls for credentials app
+    path('credentials/', include('credentials.urls')),
 
     # urls for websites app
     path('websites/', include('websites.urls')),
