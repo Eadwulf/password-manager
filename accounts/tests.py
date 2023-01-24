@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.utils import timezone
 
-from accounts.models import CustomUser as User
+from accounts.models import User
 
 
 class UserTests(TestCase):
