@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # third party apps
     'django_extensions',
+    'rest_framework',
+    'debug_toolbar',
 
     'accounts.apps.AccountsConfig',
     'websites.apps.WebsitesConfig',
@@ -54,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -133,3 +136,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

@@ -8,6 +8,8 @@ django = "*"
 psycopg2 = {extras = ["binary"], version = "*"}
 django-extensions = "*"
 notebook = "*"
+djangorestframework = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 
