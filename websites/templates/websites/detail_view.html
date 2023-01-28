@@ -9,9 +9,23 @@
 {% endblock %}
 
 {% block content %}
-   <h3>{{ website.name}} </h3> 
-   <ul>
-        <li>URL: {{ website.url }}</li>
+    <a href="{% url 'home' %}">Home</a> /
+    <a href="{% url 'website_list' %}">Websites</a> /
+    {{ website.name }} /
+    <br>
+    <br>
+
+    <h3>{{ website.name}} </h3> 
+    <ul>
+        <li>URL: <a href="{{ website.url }}">{{ website.url }}</a></li>
         <li>Description: {{ website.description }}</li>
-   </ul>
+        {% if saved_credentials %}
+            <li>Saved Credentials: </li>
+            <ul>
+                {% for credential in saved_credentials %}
+                    <li><a href="{{ credential.get_absolute_url }}">{{ credential.username }}</a> | Added on {{ credential.added_on|date:"SHORT_DATE_FORMAT" }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </ul>
 {% endblock %}

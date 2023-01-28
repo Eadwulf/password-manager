@@ -9,7 +9,7 @@ class Credential(models.Model):
     password = models.CharField(max_length=64)
     added_on = models.DateTimeField(auto_now=True)
     last_modified = models.DateTimeField(blank=True, null=True, default=None)
-    website = models.ForeignKey(Website, on_delete=models.CASCADE, related_name='saved_credentials')
+    website = models.ForeignKey(Website, on_delete=models.CASCADE, related_name='credentials')
 
     def get_absolute_url(self):
         return reverse('credential_detail', kwargs={'pk': self.pk})

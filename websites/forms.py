@@ -1,14 +1,11 @@
-
 from django import forms
 
+from accounts.models import User
 from websites.models import Website
 
 
-class WebsiteCreateForm(forms.ModelForm):
-
-    class Meta:
-        model = Website
-        fields = '__all__'
+class WebsiteCreateForm(forms.Form):
+    name = forms.CharField(max_length=64)
+    url = forms.URLField(max_length=64)
+    description = forms.CharField(max_length=256)
     
-    def clean_url(self):
-        return self.cleaned_data['url'].lower()

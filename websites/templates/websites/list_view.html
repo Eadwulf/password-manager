@@ -9,6 +9,9 @@
 {% endblock %}
 
 {% block content %}
+    <a href="{% url 'home' %}">Home</a> /
+    <a href="{% url 'website_list' %}">Websites</a> /
+    <br><br>
     {% for website in websites %}
         <a href="{{ website.get_absolute_url }}"><h3>{{ website.name }}</h3></a>
         <ul>

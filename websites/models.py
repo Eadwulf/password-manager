@@ -8,7 +8,7 @@ class Website(models.Model):
     url = models.URLField(max_length=64)
     name = models.CharField(max_length=64, blank=True, null=True)
     description = models.CharField(max_length=256, blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='website')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='websites')
 
     def get_absolute_url(self):
         return reverse('website_detail', kwargs={'pk': self.pk})
