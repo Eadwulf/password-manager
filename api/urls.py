@@ -1,9 +1,15 @@
 from django.urls import path
 
-from .views import credential_list, credential_detail
+from .views import (
+    CredentialListView, CredentialDetailView,
+    WebsiteListView, WebsiteDetailView,
+)
 
 
 urlpatterns = [
-    path('credentials', credential_list, name='credential_list'),
-    path('credentials/<int:pk>', credential_detail, name='credential_detail'),
+    path('credentials', CredentialListView.as_view(), name='credential_list'),
+    path('credentials/<int:pk>', CredentialDetailView.as_view(), name='credential_detail'),
+
+    path('websites/', WebsiteListView.as_view()),
+    path('websites/<int:pk>', WebsiteDetailView.as_view()),
 ]
