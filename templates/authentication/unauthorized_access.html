@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-    <h1>Unauthorized Access</h1>
-    <p>Please,
-        <a href="{% url 'login' %}"><input type="button" value="Log In"></a> or
-        <a href="{% url 'signup' %}"><input type="button" value="Sing Up"></a> first.
-    </p>
-{% endblock %}
