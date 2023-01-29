@@ -12,23 +12,28 @@ class UserListView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
 class UserDetailView(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
 
 class CredentialListView(ListCreateAPIView):
     # TODO: Fix id not null constraint
     queryset = Credential.objects.all()
     serializer_class = CredentialSerializer
 
+
 class CredentialDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Credential.objects.all()
     serializer_class = CredentialSerializer
+
 
 class WebsiteListView(ListCreateAPIView):
     # TODO: Fix id not null constraint
     queryset = Website.objects.all()
     serializer_class = WebsiteSerializer
+
 
 class WebsiteDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Website.objects.all()
