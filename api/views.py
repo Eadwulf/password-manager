@@ -8,14 +8,14 @@ from credentials.models import Credential
 from .serializers import CredentialSerializer
 
 
-@api_view()
+@api_view(['GET', 'POST'])
 def credential_list(request):
     if request.method == 'GET':
-        serialized_credential = CredentialSerializer(Credential.objects.all())
+        serialized_credential = CredentialSerializer(Credential.objects.all(), many=True)
         return Response(serialized_credential.data, status=status.HTTP_200_OK)
     
 
-@api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
+@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
 def credential_detail(request, pk):
     if request.method == 'GET':
         try:
