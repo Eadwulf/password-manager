@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['username', 'fist_name', 'last_name', 'email']
+        fields = ['id', 'username', 'fist_name', 'last_name', 'email']
 
 
 class CredentialSerializer(serializers.ModelSerializer):
@@ -25,4 +25,4 @@ class WebsiteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Website
-        fields = ['url', 'name', 'description', 'user']
+        fields = ['id', 'url', 'name', 'description', 'user']
