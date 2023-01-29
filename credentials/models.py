@@ -3,7 +3,6 @@ from django.urls import reverse
 
 from websites.models import Website
 
-
 class Credential(models.Model):
     username = models.CharField(max_length=32)
     password = models.CharField(max_length=64)
