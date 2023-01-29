@@ -1,9 +1,20 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
-from .serializers import CredentialSerializer, WebsiteSerializer
+from .serializers import UserSerializer, CredentialSerializer, WebsiteSerializer
+
+from accounts.models import User
 from credentials.models import Credential
 from websites.models import Website
 
+
+class UserListView(ListCreateAPIView):
+    # TODO: Fix id not null constraint
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserDetailView(RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 class CredentialListView(ListCreateAPIView):
     # TODO: Fix id not null constraint

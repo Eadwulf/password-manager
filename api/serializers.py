@@ -9,11 +9,11 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'fist_name', 'last_name', 'email']
+        fields = ['id', 'username', 'first_name', 'last_name', 'email']
 
 
 class CredentialSerializer(serializers.ModelSerializer):
-    website = serializers.StringRelatedField()
+    website = serializers.HyperlinkedRelatedField('website-detail', queryset=Website.objects.all())
 
     class Meta:
         model = Credential
@@ -21,7 +21,7 @@ class CredentialSerializer(serializers.ModelSerializer):
 
 
 class WebsiteSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField()
+    user = serializers.HyperlinkedRelatedField('user-detail', queryset=User.objects.all())
 
     class Meta:
         model = Website
